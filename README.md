@@ -3,8 +3,8 @@
 This repository is a comprehensive reference for systems programming and low-level computer systems concepts. It includes notes, code examples, and helpful resources for such concepts.
 
 ## Resources
--[Dive Into Systems](https://diveintosystems.org/)
--[Computer Systems: A Programmer's Perspective, 3rd ed.](https://www.amazon.com/Computer-Systems-Programmers-Perspective-3rd/dp/013409266X)
+- [Dive Into Systems](https://diveintosystems.org/)
+- [Computer Systems: A Programmer's Perspective, 3rd ed.](https://www.amazon.com/Computer-Systems-Programmers-Perspective-3rd/dp/013409266X)
 
 ## Table of Contents
 
