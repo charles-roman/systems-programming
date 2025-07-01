@@ -17,7 +17,7 @@
 - [Memory Allocators](#memory-allocators)
 
 <details>
-<summary><strong> Program Memory (Click to Expand)</strong></summary>
+<summary><h2> Program Memory </h2></summary>
 
 <br>
 
@@ -26,7 +26,7 @@
 </details>
 
 <details>
-<summary><strong> Pointers (Click to Expand)</strong></summary>
+<summary><h2> Pointers </h2></summary>
 
 <br>
 
@@ -35,15 +35,19 @@
 </details>
 
 <details>
-<summary><strong> Dynamic Memory Allocation (Click to Expand)</strong></summary>
+<summary><h2> Dynamic Memory Allocation </h2></summary>
 
 <br>
+
+> Dynamic memory allocation refers to the process of allocating program memory manually through code
 
 Dynamic memory allocation grants flexibility to programs that:
 - Do not know the size of arrays or other data structures until runtime (e.g. size depends on user input)
 - Need to allow for a variety of input sizes (not just fixed capacity)
 - Want to allocate exactly the memory needed, avoiding wasted space
 - Need to grow or shrink memory usage during program execution, reallocating space as needed and freeing it when no longer used
+
+---
 
 ### Characteristics of Dynamically Allocated Memory
 - Dynamically allocated memory resides in the **heap** region of a program’s address space.
@@ -60,7 +64,7 @@ Dynamic memory allocation grants flexibility to programs that:
 
 ---
 
-## Heap Memory Management
+### Heap Memory Management
 C provides `malloc()` and `free()` as the interface to manage heap memory:
 
 - The **heap manager** maintains a **free list** — a set of unallocated memory extents.
@@ -71,14 +75,12 @@ C provides `malloc()` and `free()` as the interface to manage heap memory:
   - Track available memory regions
   - Locate suitable contiguous blocks to fulfill future `malloc()` requests
 
-### Memory Metadata
+#### Memory Metadata
 - When you call `malloc()`, the heap manager also allocates a few bytes **before** the memory block to store **metadata**.
 - This metadata includes information such as the **size** of the allocated block.
 - This is why `free()` does **not** require the size of the memory — it retrieves it from the hidden header.
 
----
-
-### 🔑 Key Functions
+#### 🔑 Key Functions
 | Function     | Description                                      |
 |--------------|--------------------------------------------------|
 | `malloc()`   | Allocates a block of memory                      |
@@ -91,11 +93,13 @@ C provides `malloc()` and `free()` as the interface to manage heap memory:
 </details>
 
 <details>
-<summary><strong> Arrays (Click to Expand)</strong></summary>
+<summary><h2> Arrays </h2></summary>
 
 <br>
 
-Arrays provide **contiguous storage** of elements of the **same data type**. They can be allocated either statically or dynamically depending on the needs of the program.
+> Arrays provide **contiguous storage** of elements of the **same data type**. They can be allocated either statically or dynamically depending on the needs of the program.
+
+C supports arrays of multiple dimensions, however the most commonly used are 1D and 2D arrays.
 
 ---
 
@@ -140,8 +144,6 @@ Arrays provide **contiguous storage** of elements of the **same data type**. The
 #### Dynamic 2D Arrays
 There are two common ways to dynamically allocate a 2D array:
 
----
-
 #### 1. Single Block Allocation
 
 - Allocate **one large contiguous block** of `N * M` elements.
@@ -149,34 +151,32 @@ There are two common ways to dynamically allocate a 2D array:
   ```c
   arr[i * M + j]
 
-  > ⚠️ Syntactically, this is no different than allocation for a 1D array which prevents the compiler from being able to differentiate between the two; this is what causes the need for indexing logic
+> ⚠️ Syntactically, this is no different than allocation for a 1D array which prevents the compiler from being able to differentiate between the two; this is what causes the need for indexing logic
 
-**Advantages:**
-- Memory and cache efficient.
-- Entire matrix is stored contiguously.
-- Fast access due to spatial locality.
+> **Advantages:**
+> - Memory and cache efficient.
+> - Entire matrix is stored contiguously.
+> - Fast access due to spatial locality.
 
-**Disadvantages:**
-- Less intuitive syntax.
-- Requires manual indexing logic.
+> **Disadvantages:**
+> - Less intuitive syntax.
+> - Requires manual indexing logic.
 
 #### 2. Array of Row Pointers
 
 - Allocate a 1D array of N pointers, where each pointer points to a 1D array of M values.
 - This provides more programmer-friendly syntax, allowing for use of matrix-style notation (`arr[][]`).
 
-**Advantages:**
-- Natural, intuitive matrix syntax.
-- Easier to work with in code and debugging.
+> **Advantages:**
+> - Natural, intuitive matrix syntax.
+> - Easier to work with in code and debugging.
 
-**Disadvantages:**
-- Only the elements within each row are contiguous.
-    - Consecutive rows may not be adjacent in memory.
-- Less efficient in memory usage and access time due to fragmentation.
+> **Disadvantages:**
+> - Only the elements within each row are contiguous.
+    > - Consecutive rows may not be adjacent in memory.
+> - Less efficient in memory usage and access time due to fragmentation.
 
----
-
-### Summary
+#### Summary
 
 | Feature                  | Static Array   | Dynamic Array (1 Block)  | Dynamic Array (Row Pointers)  |
 |--------------------------|----------------|--------------------------|-------------------------------|
