@@ -8,82 +8,82 @@ This repository is a comprehensive reference for systems programming and low-lev
 
 ## Table of Contents
 
-### Computer Systems
+### [Computer Systems](notes/computer-systems/README.md)
 
-### Character Encoding
-- [ASCII](#ascii)
+### [Character Encoding](notes/character-encoding/README.md)
+- [ASCII](notes/character-encoding/README.md)
   - Chars and Strings
-- [Unicode and UTF-8](#unicode-and-utf-8)
+- [Unicode and UTF-8](notes/character-encoding/README.md)
 
-### C Programming
-- [Program Memory](#program-memory)
-- [Pointers](#pointers)
+### [C Programming](notes/c-programming/README.md)
+- [Program Memory](notes/c-programming/README.md)
+- [Pointers](notes/c-programming/README.md)
   - Pass by Value vs Pass by Reference
   - Pointer Arithmetic
   - Pointer Chaining
-- [Dynamic Memory Allocation](#dynamic-memory-allocation)
-- [Arrays](#arrays)
+- [Dynamic Memory Allocation](notes/c-programming/README.md)
+- [Arrays](notes/c-programming/README.md)
   - Static vs Dynamic
   - 2D Arrays
-- [Strings](#strings)
-- [Data Structures](#data-structures)
+- [Strings](notes/c-programming/README.md)
+- [Data Structures](notes/c-programming/README.md)
   - Structs (Composite)
   - Linked Lists (Dynamic)
-- [Memory Allocators](#memory-allocators)
+- [Memory Allocators](notes/c-programming/README.md)
 
-### Data Representation
-- [Number Systems](#number-systems)
+### [Data Representation](notes/data-representation/README.md)
+- [Number Systems](notes/data-representation/README.md)
   - Binary
   - Hexadecimal
   - Octal
-- [Signed vs Unsigned Integers](#signed-vs-unsigned-integers)
+- [Signed vs Unsigned Integers](notes/data-representation/README.md)
   - 2s Complement
   - Integer Arithmetic
   - Integer Overflow
   - `size_t`
-- [Bitwise Operations](#bitwise-operations)
+- [Bitwise Operations](notes/data-representation/README.md)
   - Bitmasking
-- [Endianess (Byte Ordering)](#endianess-byte-ordering)
+- [Endianess (Byte Ordering)](notes/data-representation/README.md)
 
-### Formatting
-- [clang-format](#clang-format)
+### [Formatting](notes/formatting/README.md)
+- [clang-format](notes/formatting/README.md)
 
-### Compiling & Toolchains
-- [Compilers and Linking](#compilers-and-linking)
+### [Compiling & Toolchains](notes/compiling-and-toolchains/README.md)
+- [Compilers and Linking](notes/compiling-and-toolchains/README.md)
   - Static vs Dynamic Linking
   - Multi-file Compilation
-- [Libraries](#libraries)
-- [Toolchains](#toolchains)
+- [Libraries](notes/compiling-and-toolchains/README.md)
+- [Toolchains](notes/compiling-and-toolchains/README.md)
   - MSVC
   - Clang
   - GCC
-- [Build Systems](#build-systems)
+- [Build Systems](notes/compiling-and-toolchains/README.md)
   - Make
   - CMake
-- [Optimization Techniques](#optimization-techniques)
+- [Optimization Techniques](notes/compiling-and-toolchains/README.md)
 
-### Debugging & Analysis
-- [GDB (GNU Debugger)](#gdb)
-- [Valgrind](#valgrind)
-- [Address Sanitizer (ASAN)](#asan)
+### [Debugging & Analysis](notes/debugging-and-analysis/README.md)
+- [GDB (GNU Debugger)](notes/debugging-and-analysis/README.md)
+- [Valgrind](notes/debugging-and-analysis/README.md)
+- [Address Sanitizer (ASAN)](notes/debugging-and-analysis/README.md)
 
-### Storage and Memory Hierarchy
-- [Memory Hierarchy](#memory-hierarchy)
-- [Caching](#caching)
+### [Storage and Memory Hierarchy](notes/storage-and-memory-hierarchy/README.md)
+- [Memory Hierarchy](notes/storage-and-memory-hierarchy/README.md)
+- [Caching](notes/storage-and-memory-hierarchy/README.md)
 - wrap?
 
-### Operating Systems
-- [Booting and Running](#booting-and-running)
-- [Processes](#processes)
+### [Operating Systems](notes/operating-systems/README.md)
+- [Booting and Running](notes/operating-systems/README.md)
+- [Processes](notes/operating-systems/README.md)
   - Inter-process Communication (IPC)
-- [Threads](#threads)
+- [Threads](notes/operating-systems/README.md)
   - Multithreading
   - Thread Communication
-- [Virtual Memory and Paging](#virtual-memory-and-paging)
-- [Fork and Exec](#fork-and-exec)
+- [Virtual Memory and Paging](notes/operating-systems/README.md)
+- [Fork and Exec](notes/operating-systems/README.md)
 
-### Computer Architecture
+### [Computer Architecture](notes/computer-architecture/README.md)
 
-### Assembly
-- [x86 (32-bit vs 64-bit)](#x86-assembly)
-- [ARMv8](#armv8)
+### [Assembly](notes/assembly/README.md)
+- [x86 (32-bit vs 64-bit)](notes/assembly/README.md)
+- [ARMv8](notes/assembly/README.md)
