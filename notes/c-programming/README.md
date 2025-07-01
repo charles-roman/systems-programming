@@ -23,7 +23,7 @@
 
 <!-- INSERT INFO HERE -->
 
-<details>
+</details>
 
 <details>
 <summary><strong> Pointers (Click to Expand)</strong></summary>
@@ -32,7 +32,7 @@
 
 <!-- INSERT INFO HERE -->
 
-<details>
+</details>
 
 <details>
 <summary><strong> Dynamic Memory Allocation (Click to Expand)</strong></summary>
@@ -186,4 +186,4 @@ There are two common ways to dynamically allocate a 2D array:
 | `arr[i][j]` Syntax       | ✅ Yes         | ❌ No                   | ✅ Yes                        |
 | Memory Efficient         | ✅ Yes         | ✅ Yes                  | ❌ No (fragmentation)         |
 
-<details>
+</details>
