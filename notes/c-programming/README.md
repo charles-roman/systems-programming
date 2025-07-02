@@ -49,11 +49,12 @@ Dynamic memory allocation grants flexibility to programs that:
 
 ---
 
-### Characteristics of Dynamically Allocated Memory
+### Characteristics of Dynamically Allocated (Heap) Memory
 - Dynamically allocated memory resides in the **heap** region of a program’s address space.
 - When memory is allocated at runtime, the heap returns a **pointer** to the start of that memory block.
 - Heap memory is **anonymous** — addresses are not tied to named variables.
   - For example, a local pointer on the stack can point to a block of memory in the heap.
+- Heap memory provides global access to data as long as pointers to that data exist
 - Heap memory must be **explicitly allocated and deallocated** by the programmer.
   - Failure to do so can result in **memory leaks**.
 - Dynamic memory can be used to allocate [arrays](#arrays) as well:
@@ -109,6 +110,12 @@ C supports arrays of multiple dimensions, however the most commonly used are 1D 
   - In the **data segment** if declared as global or static variables.
 - Their **capacity must be known at compile time**.
 
+> Modern C implementations may optionally support variable length arrays (VLAs) which allow for the declaration of arrays whose size is determined at runtime, however VLAs are subject to some limitations (cannot be initialized, cannot be resized, cannot be members of some composite data types) and risks (stack overflow)
+  ```c
+  *type* arr[n];
+  ```
+> n is determined at runtime
+
 ---
 
 ### Dynamic Arrays
@@ -128,6 +135,18 @@ C supports arrays of multiple dimensions, however the most commonly used are 1D 
 - This means:
   - **Modifications** to the array in the function will affect the original array.
   - Semantics are identical to **pointer-based** parameter passing.
+- The size of an array must be passed too the function as an additional parameter if it is to be utilized.
+    - There is no other way to retrieve the size of an array as the function only contains a pointer to the base address of the array's memory.
+- When creating and returning an array locally within a function, it should be dynamically allocated
+  - otherwise the base address returned would refer to invalid memory
+
+---
+
+### Arrays as Pointers
+- Array variables are nothing more than pointers that refer to the base address of the contiguous storage
+- Using array indexing syntax is equivalent to performing [pointer arithmetic](#pointer-arithmetic) and dereferencing the result
+  ```c
+  arr[i] <--> *(arr_ptr + i)
 
 ---
 
@@ -137,9 +156,6 @@ C supports arrays of multiple dimensions, however the most commonly used are 1D 
 - **Statically allocated 2D arrays** are stored in **row-major order**:
   - Each row is a 1D array stored **contiguously** in memory.
   - Rows are placed one after the other in memory.
-- Passing a 2D array to a function works the same as with 1D arrays:
-  - The parameter receives the **base address** of the matrix.
-  - Indexing remains consistent and predictable.
 
 #### Dynamic 2D Arrays
 There are two common ways to dynamically allocate a 2D array:
@@ -185,5 +201,18 @@ There are two common ways to dynamically allocate a 2D array:
 | Contiguous in Memory     | ✅ Yes         | ✅ Yes                  | ❌ Rows only                  |
 | `arr[i][j]` Syntax       | ✅ Yes         | ❌ No                   | ✅ Yes                        |
 | Memory Efficient         | ✅ Yes         | ✅ Yes                  | ❌ No (fragmentation)         |
+
+#### 2D Arrays in Functions
+- Passing a 2D array to a function works the same as with 1D arrays:
+  - The parameter receives the **base address** of the matrix.
+
+- **Static:**
+  - Number of columns must be specified in function parameter for array when using standard array notation (in addition to a rows parameter).
+    - needed for compiler to determine where a row ends.
+  - When using pointer notation (pointer-to-pointer), row and column parameters must be provided.
+
+- **Dynamic:**
+  - Single block allocation will result in passing a single pointer just like a 1D array, along with row and column parameters.
+  - An array of row pointers will use standard pointer-to-pointer notation, with row and column parameters provided.
 
 </details>
