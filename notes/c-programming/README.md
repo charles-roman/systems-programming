@@ -194,7 +194,7 @@ There are two common ways to dynamically allocate a 2D array:
 
 > **Disadvantages:**
 > - Only the elements within each row are contiguous.
-    > - Consecutive rows may not be adjacent in memory.
+>   - Consecutive rows may not be adjacent in memory.
 > - Less efficient in memory usage and access time due to fragmentation.
 
 #### 2D Array Summary
