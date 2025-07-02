@@ -57,6 +57,8 @@ Dynamic memory allocation grants flexibility to programs that:
 - Heap memory provides global access to data as long as pointers to that data exist
 - Heap memory must be **explicitly allocated and deallocated** by the programmer.
   - Failure to do so can result in **memory leaks**.
+- After deallocating memory, it is always good practice to reset pointers referring to such memory to NULL.
+    - This prevents future access to invalid memory which may contain garbage values.
 - Dynamic memory can be used to allocate [arrays](#arrays) as well:
   - The returned pointer is the **base address** of the array.
   - You can use the memory just like a statically declared array.
@@ -90,6 +92,7 @@ C provides `malloc()` and `free()` as the interface to manage heap memory:
 | `free()`     | Frees allocated memory                           |
 
 > ⚠️ Always `free()` any memory allocated with `malloc()` or `calloc()` to prevent memory leaks.
+> ⚠️ Always reset pointers referring to deallocated memory to NULL to prevent accessing invalid data.
 
 </details>
 
@@ -112,9 +115,11 @@ C supports arrays of multiple dimensions, however the most commonly used are 1D 
 
 > Modern C implementations may optionally support variable length arrays (VLAs) which allow for the declaration of arrays whose size is determined at runtime, however VLAs are subject to some limitations (cannot be initialized, cannot be resized, cannot be members of some composite data types) and risks (stack overflow)
   ```c
-  *type* arr[n];
+  // Example
+  <type> arr[n];
+
+  // where n is determined at runtime
   ```
-> n is determined at runtime
 
 ---
 
@@ -192,7 +197,7 @@ There are two common ways to dynamically allocate a 2D array:
     > - Consecutive rows may not be adjacent in memory.
 > - Less efficient in memory usage and access time due to fragmentation.
 
-#### Summary
+#### 2D Array Summary
 
 | Feature                  | Static Array   | Dynamic Array (1 Block)  | Dynamic Array (Row Pointers)  |
 |--------------------------|----------------|--------------------------|-------------------------------|
@@ -207,12 +212,13 @@ There are two common ways to dynamically allocate a 2D array:
   - The parameter receives the **base address** of the matrix.
 
 - **Static:**
-  - Number of columns must be specified in function parameter for array when using standard array notation (in addition to a rows parameter).
-    - needed for compiler to determine where a row ends.
+  - Number of columns must be specified in function parameter for array when using standard array notation (in addition to a row parameter).
+    - Needed for compiler to determine where a row ends.
   - When using pointer notation (pointer-to-pointer), row and column parameters must be provided.
 
 - **Dynamic:**
   - Single block allocation will result in passing a single pointer just like a 1D array, along with row and column parameters.
+    - Pointer arithmetic will be required to properly map indices.
   - An array of row pointers will use standard pointer-to-pointer notation, with row and column parameters provided.
 
 </details>
