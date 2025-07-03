@@ -12,7 +12,6 @@ This repository is a comprehensive reference for systems programming and low-lev
 
 ### [Character Encoding](notes/character-encoding/README.md)
 - [ASCII](notes/character-encoding/README.md)
-  - Chars and Strings
 - [Unicode and UTF-8](notes/character-encoding/README.md)
 
 ### [C Programming](notes/c-programming/README.md)
@@ -22,6 +21,7 @@ This repository is a comprehensive reference for systems programming and low-lev
   - Pointer Arithmetic
   - Pointer Chaining
 - [Dynamic Memory Allocation](notes/c-programming/README.md)
+- [Memory Allocators](notes/c-programming/README.md)
 - [Arrays](notes/c-programming/README.md)
   - Static vs Dynamic
   - 2D Arrays
@@ -29,7 +29,7 @@ This repository is a comprehensive reference for systems programming and low-lev
 - [Data Structures](notes/c-programming/README.md)
   - Structs (Composite)
   - Linked Lists (Dynamic)
-- [Memory Allocators](notes/c-programming/README.md)
+- [File I/O](notes/c-programming/README.md)
 
 ### [Data Representation](notes/data-representation/README.md)
 - [Number Systems](notes/data-representation/README.md)
@@ -46,12 +46,13 @@ This repository is a comprehensive reference for systems programming and low-lev
 - [Endianess (Byte Ordering)](notes/data-representation/README.md)
 
 ### [Formatting](notes/formatting/README.md)
+- [linters vs formatters](notes/formatting/README.md)
 - [clang-format](notes/formatting/README.md)
 
 ### [Compiling & Toolchains](notes/compiling-and-toolchains/README.md)
 - [Compilers and Linking](notes/compiling-and-toolchains/README.md)
-  - Static vs Dynamic Linking
   - Multi-file Compilation
+  - Static vs Dynamic Linking
 - [Libraries](notes/compiling-and-toolchains/README.md)
 - [Toolchains](notes/compiling-and-toolchains/README.md)
   - MSVC
@@ -81,6 +82,8 @@ This repository is a comprehensive reference for systems programming and low-lev
   - Thread Communication
 - [Virtual Memory and Paging](notes/operating-systems/README.md)
 - [Fork and Exec](notes/operating-systems/README.md)
+- [RTOS vs GPOS](notes/operating-systems/README.md)
+  - Bare-Metal Programming
 
 ### [Computer Architecture](notes/computer-architecture/README.md)
 
